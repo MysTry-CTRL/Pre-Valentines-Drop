@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Closer to Your Heart — Pre-Love Drop</title>
+  <!-- Fonts: Dancing Script for headings, Montserrat for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="animated-bg" aria-hidden="true">
+    <div class="floating-hearts" aria-hidden="true">
+      <span class="bg-heart h1"></span>
+      <span class="bg-heart h2"></span>
+      <span class="bg-heart h3"></span>
+      <span class="bg-heart h4"></span>
+      <span class="bg-heart h5"></span>
+    </div>
+  </div>
+
+  <header class="hero card">
+    <h1 class="brand">Closer to Your Heart</h1>
+    <p class="lead">Scroll gently and watch two hearts find each other.</p>
+  </header>
+
+  <!-- Stage: two lovers / heart halves move together as user scrolls -->
+  <section class="stage" id="stage">
+    <div class="lover left">
+      <!-- left lover graphic (simple heart half) -->
+      <svg class="lover-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M32 58s-24-15.5-26-25C4 18 16 8 26 16c4 3 6 8 6 8s2-5 6-8c10-8 22-2 20 17-2 9-26 25-26 25z" fill="#ff4d7a"/>
+      </svg>
+    </div>
+
+    <div class="lover right">
+      <!-- right lover graphic (mirrored) -->
+      <svg class="lover-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M32 58s24-15.5 26-25C60 18 48 8 38 16c-4 3-6 8-6 8s-2-5-6-8C16 8 4 14 6 33c2 9 26 25 26 25z" fill="#b80b2a"/>
+      </svg>
+    </div>
+
+    <div class="stage-note card">
+      <h2 class="quote reveal">"Every scroll brings us closer."</h2>
+      <p class="reveal">Little reveals will appear as you continue — memories, hints, and small love notes.</p>
+    </div>
+  </section>
+
+  <!-- Lots of spaced quote sections to show intersection reveals -->
+  <section class="quotes">
+    <div class="quote-card card reveal-trigger">
+      <blockquote class="quote">"I keep your laugh tucked in my pocket."</blockquote>
+      <p class="credit">— A Quiet Admirer</p>
+    </div>
+    <div class="quote-card card reveal-trigger">
+      <blockquote class="quote">"Meet me where the city lights feel like stars."</blockquote>
+      <p class="credit">— Tonight's Plan</p>
+    </div>
+    <div class="quote-card card reveal-trigger">
+      <blockquote class="quote">"A ribbon, a note, a path of small delights."</blockquote>
+      <p class="credit">— Little Surprises</p>
+    </div>
+  </section>
+
+  <!-- Final area: hearts meet, particle burst, countdown revealed -->
+  <section class="love-stronger card" id="loveStronger">
+    <h2 class="reveal-title">Love Stronger</h2>
+    <p class="reveal-sub">When the hearts meet, a little celebration begins.</p>
+
+    <div class="countdown-grid reveal" id="finalCountdown">
+      <div><div class="num" id="days">--</div><div class="label">Days</div></div>
+      <div><div class="num" id="hours">--</div><div class="label">Hours</div></div>
+      <div><div class="num" id="minutes">--</div><div class="label">Minutes</div></div>
+      <div><div class="num" id="seconds">--</div><div class="label">Seconds</div></div>
+    </div>
+
+    <div class="controls">
+      <button id="hintBtn" class="btn">Drop a Hint</button>
+    </div>
+  </section>
+
+  <footer class="site-footer card">
+    <p>Made with soft gradients and glass — Closer to Your Heart.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

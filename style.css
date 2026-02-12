@@ -1,0 +1,116 @@
+:root{
+  --rose: #fff0f6;
+  --cream: #fff6ef;
+  --rose-gold-1: #ffd9df;
+  --deep-crimson: #b80b2a;
+  --glass: rgba(255,255,255,0.12);
+  --accent: rgba(255,77,122,0.12);
+  --p: 0; /* scroll progress 0..1 */
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+.animated-bg{
+  position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+  background: linear-gradient(120deg,#fff6f3 0%, #fff0f6 30%, #ffe7ef 60%, #ffefeb 100%);
+  background-size: 400% 400%;
+  animation: bgShift 12s ease-in-out infinite;
+}
+
+@keyframes bgShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+body{
+  margin:0;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color:#4b1a28;
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.floating-hearts{position:absolute;inset:0;pointer-events:none}
+.bg-heart{
+  position:absolute;width:34px;height:34px;opacity:0.9;
+  background:linear-gradient(180deg,#ffd1e3,#ff6f91);
+  transform:rotate(45deg);
+  clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 80%, 18% 100%, 0% 35%);
+  filter:drop-shadow(0 8px 30px rgba(184,11,42,0.08));
+  animation: floaty 10s linear infinite;
+}
+.bg-heart.h1{left:8%;bottom:-10%;width:60px;height:60px;animation-duration:14s;animation-delay:0s;opacity:0.35}
+.bg-heart.h2{left:25%;bottom:-5%;width:36px;height:36px;animation-duration:10s;animation-delay:2s;opacity:0.45}
+.bg-heart.h3{left:45%;bottom:-8%;width:48px;height:48px;animation-duration:12s;animation-delay:4s;opacity:0.28}
+.bg-heart.h4{left:62%;bottom:-12%;width:30px;height:30px;animation-duration:9s;animation-delay:1s;opacity:0.5}
+.bg-heart.h5{left:78%;bottom:-6%;width:56px;height:56px;animation-duration:16s;animation-delay:3s;opacity:0.22}
+.bg-heart.h6{left:85%;bottom:-15%;width:42px;height:42px;animation-duration:11s;animation-delay:6s;opacity:0.36}
+.bg-heart.h7{left:12%;bottom:-20%;width:24px;height:24px;animation-duration:8s;animation-delay:5s;opacity:0.5}
+.bg-heart.h8{left:35%;bottom:-22%;width:32px;height:32px;animation-duration:13s;animation-delay:8s;opacity:0.3}
+.bg-heart.h9{left:55%;bottom:-18%;width:28px;height:28px;animation-duration:9s;animation-delay:7s;opacity:0.42}
+.bg-heart.h10{left:70%;bottom:-25%;width:44px;height:44px;animation-duration:15s;animation-delay:9s;opacity:0.26}
+@keyframes floaty{
+  0%{transform:translateY(0) rotate(45deg) scale(1)}
+  50%{transform:translateY(-30vh) rotate(22deg) scale(1.05)}
+  100%{transform:translateY(-60vh) rotate(10deg) scale(0.95)}
+}
+
+.card{
+  position:relative;z-index:2;
+  margin:28px auto;
+  width:min(940px,94%);
+  padding:22px;
+  border-radius:16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.35));
+  box-shadow: 0 8px 40px rgba(184,11,42,0.08);
+  backdrop-filter: blur(10px) saturate(120%);
+  text-align:center;
+}
+.brand{font-family:'Dancing Script', cursive;font-size:2.6rem;margin:6px 0;color:#b80b2a}
+.lead{margin:0;color:#6b2b35}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;justify-items:center;margin-top:12px}
+.countdown-grid .num{font-size:1.6rem;font-weight:700}
+.label{font-size:0.85rem;color:#5b2934;margin-top:6px}
+.controls{margin-top:18px}
+.btn{background:linear-gradient(90deg,#ff7aa2,#ff4d7a);color:white;border:none;padding:12px 22px;border-radius:999px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(255,77,122,0.18)}
+.btn:active{transform:translateY(1px)}
+
+/* confetti hearts */
+.confetti-heart{position:fixed;left:50%;top:50%;width:16px;height:16px;transform:translate(-50%,-50%) rotate(45deg);pointer-events:none;z-index:999}
+.confetti-heart:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#ffd1e3,#ff6f91);clip-path:polygon(50% 0%, 100% 35%, 82% 100%, 50% 80%, 18% 100%, 0% 35%);border-radius:6px}
+
+@keyframes confettiPop{
+  0%{opacity:1;transform:translateY(0) scale(1) rotate(45deg)}
+  100%{opacity:0;transform:translateY(360px) translateX(var(--tx)) scale(0.9) rotate(540deg)}
+}
+
+/* Stage: hearts that move toward center based on --p */
+.stage{min-height:70vh;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;gap:20px;padding:60px 20px}
+.lover{position:fixed;top:40%;z-index:5;width:120px;height:120px;display:flex;align-items:center;justify-content:center}
+.lover.left{left:50%;transform:translateX(calc(-40vw + (var(--p) * 40vw)));}
+.lover.right{left:50%;transform:translateX(calc(40vw - (var(--p) * 40vw)));}
+.lover-icon{width:100%;height:100%}
+.stage-note{max-width:720px}
+
+/* quote reveals */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 700ms ease, transform 700ms ease}
+.in-view{opacity:1;transform:none}
+
+.quotes{display:flex;flex-direction:column;gap:24px;padding:36px 20px}
+.quote-card{padding:18px}
+.quote{font-size:1.2rem;margin:0;font-style:italic;font-weight:500}
+
+/* final Love Stronger */
+.love-stronger{padding:36px 20px}
+.reveal-title{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--deep-crimson)}
+
+
+/* responsive tweaks */
+
+@media (max-width:640px){
+  .lover{width:86px;height:86px}
+  .stage{padding:48px 12px}
+  .brand{font-size:2rem}
+  .countdown-grid{grid-template-columns:repeat(2,1fr)}
+}
+
